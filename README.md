@@ -45,9 +45,9 @@ Para realizar mostrar la imagen debemos descomentar los métodos onBeforeCluster
 
     private void addItems() {
         for (int i=0; i<200;i++) {
-                        //mClusterManager.addItem(new Commerce(position(), "Commerce-"+i,Imagen));//creamos un nuevo contructor de Commerce para que pueda contener una imagen.
+                        mClusterManager.addItem(new Commerce(position(), "Commerce-"+i,Imagen));//creamos un nuevo contructor de Commerce para que pueda contener una imagen.
         }
-        }
+    }
 
 
 
