@@ -16,22 +16,21 @@ Marker personalizado
 La aplicación esta preparada para la modificación de los markers, ya que actualmente simplemente mostrara el icono por defecto de android.
 Para realizar mostrar la imagen debemos descomentar los métodos onBeforeClusterItemRendered y onBeforeClusterRendered, tras ello le modificaremos el método addItems.
 
-> protected void onBeforeClusterItemRendered(Commerce commerce, MarkerOptions markerOptions) {            
+> 
+protected void onBeforeClusterItemRendered(Commerce commerce, MarkerOptions markerOptions) {            
             mImageView.setImageResource(commerce.profilePhoto);
             Bitmap icon = mIconGenerator.makeIcon();
             markerOptions.icon(BitmapDescriptorFactory.fromBitmap(icon))
             markerOptions.title(commerce.name);
-        }
-> 
-> Blockquote
-
+        }      
+        >
         @Override
         protected void onBeforeClusterRendered(Cluster<Commerce> cluster, MarkerOptions markerOptions) {
-            
+        >    
             List<Drawable> profilePhotos = new ArrayList<Drawable>(Math.min(4, cluster.getSize()));
             int width = mDimension;
             int height = mDimension;
-
+>
             for (Commerce c : cluster.getItems()) {
                 // Draw 4 at most.
                 if (profilePhotos.size() == 4) break;
@@ -41,13 +40,13 @@ Para realizar mostrar la imagen debemos descomentar los métodos onBeforeCluster
             }
             MultiDrawable multiDrawable = new MultiDrawable(profilePhotos);
             multiDrawable.setBounds(0, 0, width, height);
-
+>
             mClusterImageView.setImageDrawable(multiDrawable);
             Bitmap icon = mClusterIconGenerator.makeIcon(String.valueOf(cluster.getSize()));
             markerOptions.icon(BitmapDescriptorFactory.fromBitmap(icon));
         }
-
-> private void addItems() {
+        >
+private void addItems() {
         for (int i=0; i<200;i++) {
                         //mClusterManager.addItem(new Commerce(position(), "Commerce-"+i,Imagen));
         }
